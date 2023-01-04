@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: larger;
+}
+
+#startBtn {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  display: block;
+  background-color: #04aa6d;
+  color: white;
+  border-radius: 50%;
+  font-size: large;
+  cursor: pointer;
+}
+
+#startBtn:hover {
+  background-color: #3e8e41;
+}
+
+#startBtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.board {
+  background-color: darkslategray;
+  display: flexbox;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+  font-size: large;
+}
+
+td {
+  display: -ms-inline-grid;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  font-size: large;
+  cursor: pointer;
+  padding: 2px;
+  margin: 15px;
+}
+
+.buttons {
+  font-size: larger;
+}
+
+#btn1 {
+  background-color: red;
+  opacity: 70%;
+}
+#btn1:active {
+  opacity: 100%;
+}
+
+#btn2 {
+  background-color: blue;
+  opacity: 70%;
+}
+#btn2:active {
+  opacity: 100%;
+}
+
+#btn3 {
+  background-color: yellow;
+  color: black;
+  opacity: 70%;
+}
+#btn3:active {
+  opacity: 100%;
+}
+
+#btn4 {
+  background-color: green;
+  opacity: 70%;
+}
+#btn4:active {
+  opacity: 100%;
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  body {
+    background-color: yellow;
+    text-align: center;
+  }
+}
