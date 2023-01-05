@@ -6,10 +6,12 @@ body {
   background-color: whitesmoke;
   text-align: center;
   font-size: larger;
+  justify-content: center;
+  align-items: center;
 }
 
 #startBtn {
-  margin: auto;
+  margin: 0 auto;
   padding: 20px;
   text-align: center;
   display: block;
@@ -32,8 +34,8 @@ body {
 
 .board {
   background-color: darkslategray;
-  display: flexbox;
-  margin: 20px;
+  /* display: flexbox; */
+  margin: 0 auto;
   padding: 20px;
   color: white;
   font-size: large;
