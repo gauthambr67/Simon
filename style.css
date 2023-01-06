@@ -60,39 +60,39 @@ td {
   background-color: red;
   opacity: 70%;
 }
-#btn1:active {
+/* #btn1:active {
   opacity: 100%;
-}
+} */
 
 #btn2 {
   background-color: blue;
   opacity: 70%;
 }
-#btn2:active {
+/* #btn2:active {
   opacity: 100%;
-}
+} */
 
 #btn3 {
   background-color: yellow;
   color: black;
   opacity: 70%;
 }
-#btn3:active {
+/* #btn3:active {
   opacity: 100%;
-}
+} */
 
 #btn4 {
   background-color: green;
   opacity: 70%;
 }
-#btn4:active {
+/* #btn4:active {
   opacity: 100%;
-}
+} */
 
 /* Mobile view */
 @media (max-width: 600px) {
   body {
-    background-color: yellow;
+    background-color: beige;
     text-align: center;
   }
 }
