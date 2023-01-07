@@ -1,52 +1,103 @@
 const startEl = document.getElementById("startBtn");
-const btn1El = document.getElementById("btn1");
-const btn2El = document.getElementById("btn2");
-const btn3El = document.getElementById("btn3");
-const btn4El = document.getElementById("btn4");
-const btnSet = [btn1El, btn2El, btn3El, btn4El];
+const btn0 = document.getElementById("btn0");
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+const btnSet = [btn0, btn1, btn2, btn3];
+
 const endMsg = document.getElementById("msg");
-let btnIdx = 0;
+const buttons = document.getElementsByClassName("buttons");
+
+const board = document.getElementsByClassName("board");
+
 let level = 1;
 let userOrder = [];
 let compOrder = [];
+let winFlag = true;
+// let counter = 0;
 
 //Random number generator
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-let randVal = getRandomInt(3);
 
-function startGame(cb) {
-  userOrder = [];
-  compOrder = [];
-  for (let i = 0; i < level; i++) {
-    btnSet[randVal].style.opacity = "100%";
-    compOrder.push(randVal);
-    // setTimeout(cb, 500);
-  }
-  //   if (compOrder === userOrder && level < 100) {
-  //     level++;
-  //   } else if (level === 100) {
-  //     winMessage();
+function lightOff(index) {
+  btnSet[compOrder[index]].style.opacity = "20%";
+}
+
+function genNextLight() {
+  let randVal = getRandomInt(btnSet.length);
+  compOrder.push(randVal);
+}
+
+function lightOn(index) {
+  btnSet[compOrder[index]].style.opacity = "100%";
+}
+
+function iDontKnow() {
+  //   counter++;
+  //   console.log(counter);
+  //   if (counter < level) {
+  //     startGame();
+  //     genNextLight();
   //   } else {
-  //     lossMessage();
+  //     counter = 0;
   //   }
 }
 
+function startGame() {
+  genNextLight();
+  lightOn(level - 1);
+  setTimeout(lightOff(level - 1), 2000);
+  // lightOff();
+  userTurnMessage();
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function (evt) {
+      userOrder.push(evt.target.getAttribute("data-id"));
+      setTimeout((evt.target.style.opacity = "20%"), 2000);
+      // setTimeout(lightOff(level-1), 2000);
+
+      if (compOrder == parseInt(userOrder) && level < 100) {
+        nextMsg();
+        //genNextLight();
+        //level++;
+      } else if (level === 100) {
+        winMessage();
+        return;
+      } else {
+        lossMessage();
+        winFlag = false;
+      }
+    });
+  }
+  level++;
+  // await startGame();
+}
+// cb, 0;
+
+async function loopGame() {
+  while (winFlag) {
+    await startGame();
+  }
+}
+
 function lossMessage() {
-  endMsg.innerHTML = `You reached level ${level}. Click on START button to play again.`;
+  endMsg.innerHTML = `Highest level reached: ${level}. Click on START button to play again.`;
 }
 
 function winMessage() {
   endMsg.innerHTML = `Congratulations! You have reached level 100. You have an exceptional memory!`;
 }
 
-function getUserClick(bIdx) {
-  userOrder.push(bIdx);
-  btnSet[bIdx].style.opacity = "100%";
+function nextMsg() {
+  endMsg.innerHTML = `Congratulations! You cleared level ${level}.`;
 }
 
-startEl.addEventListener("click", startGame);
+function userTurnMessage() {
+  endMsg.innerHTML = `It's your turn. Choose carefully!`;
+}
+
+startEl.addEventListener("click", loopGame);
 
 // btn1El.addEventListener("click", function () {
 //   btn1El.style.opacity = "100%";

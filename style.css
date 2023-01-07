@@ -56,43 +56,43 @@ td {
   font-size: larger;
 }
 
-#btn1 {
+#btn0 {
   background-color: red;
-  opacity: 70%;
+  opacity: 20%;
+}
+/* #btn0:active {
+  opacity: 100%;
+} */
+
+#btn1 {
+  background-color: blue;
+  opacity: 20%;
 }
 /* #btn1:active {
   opacity: 100%;
 } */
 
 #btn2 {
-  background-color: blue;
-  opacity: 70%;
+  background-color: yellow;
+  color: black;
+  opacity: 20%;
 }
 /* #btn2:active {
   opacity: 100%;
 } */
 
 #btn3 {
-  background-color: yellow;
-  color: black;
-  opacity: 70%;
+  background-color: green;
+  opacity: 20%;
 }
 /* #btn3:active {
-  opacity: 100%;
-} */
-
-#btn4 {
-  background-color: green;
-  opacity: 70%;
-}
-/* #btn4:active {
   opacity: 100%;
 } */
 
 /* Mobile view */
 @media (max-width: 600px) {
   body {
-    background-color: beige;
+    background-color: lightskyblue;
     text-align: center;
   }
 }
