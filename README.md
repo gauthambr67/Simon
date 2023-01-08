@@ -1,10 +1,10 @@
-Simon Game
+# Simon Game
 
 A simple game of short-term memory skill invented by Ralph H Baer. The machine displays a series of lights in a pattern. The user of has to repeat the same pattern from memory. If the user successfully emulates the pattern, the number of lights flashed increases. Once the user fails to emulate the pattern, the game ends.
 
 There have been several iterations of this game with several versions and variants launched since 1978.
 
-Some screenshots of the game:
+## Some screenshots of the game:
 
 ![homepage](./Screenshots/game%20open%20page.png "homepage")
 ![compChoice](./Screenshots/comp%20choice.png "Computer Pattern")
@@ -12,9 +12,10 @@ Some screenshots of the game:
 ![levelClear](./Screenshots/cleared%20level.png "Cleared Level")
 ![lossMsg](./Screenshots/loss%20msg.png "Lost Message")
 
-Technologies Used: JavaScript, HTML, CSS
+## Technologies Used: JavaScript, HTML, CSS
 
-Getting Started:
+## Getting Started:
+
 Link to the deployed game
 
 Once you go the to deployed game:
@@ -27,7 +28,7 @@ Once you go the to deployed game:
 6. If your response was not correct, you would have lost the game.
 7. Click on "Restart" button to play again.
 
-Next Steps:
+## Next Steps:
 
 1. Add audio elements to the buttons - starting off with simple monotones.
 2. Later, add random words linked to each button, so that the game can be played by auditory memory as well.
