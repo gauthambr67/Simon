@@ -18,7 +18,6 @@ let compOrder = [];
 let nextLevelFlag = true;
 let userInput = -1;
 
-//Random number generator
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -62,7 +61,7 @@ async function startGame() {
     await getUserOrder();
     userOrder.push(userInput);
   }
-  // console.log(userOrder);
+
   correctnessCheck();
 
   return nextLevelFlag;
@@ -99,18 +98,10 @@ function correctnessCheck() {
     lossMessage();
   } else if (level === 100) {
     winMessage();
-    // return;
   } else if (compOrder.length < userOrder.length) {
     lossMessage();
   }
 }
-
-//async function loopGame() {
-//  do {
-//    flag = await startGame();
-//    console.log(level);
-//  } while (flag);
-//}
 
 function lossMessage() {
   endMsg.innerHTML = `Highest level reached: ${level}. Click on START button to play again.`;
@@ -140,25 +131,3 @@ startEl.addEventListener("click", startGame);
 restartEl.addEventListener("click", restartGame);
 
 nextLevelBtn.addEventListener("click", startGame);
-// btn1El.addEventListener("click", function () {
-//   btn1El.style.opacity = "100%";
-// });
-
-// btn2El.addEventListener("click", function () {
-//   btn2El.style.opacity = "100%";
-// });
-
-// btn3El.addEventListener("click", function () {
-//   btn3El.style.opacity = "100%";
-// });
-
-// btn4El.addEventListener("click", function () {
-//   btn4El.style.opacity = "100%";
-// });
-
-// data index for all elements.
-// randomise number to fetch from Array
-// if randomEl === userClick; push user clickinto Array
-// level ++
-// more numbers
-// save
