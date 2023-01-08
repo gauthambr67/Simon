@@ -22,7 +22,23 @@ body {
   cursor: pointer;
 }
 
+#nextLevelBtn {
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: block;
+  background-color: #04aa6d;
+  color: white;
+  border-radius: 50%;
+  font-size: large;
+  cursor: pointer;
+}
+
 #startBtn:hover {
+  background-color: #3e8e41;
+}
+
+#nextLevelBtn:hover {
   background-color: #3e8e41;
 }
 
@@ -31,9 +47,21 @@ body {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+#nextLevelBtn:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.nextLevelBtn:disabled,
+.nextLevelBtn.disabled {
+  color: #fff;
+  border-color: #a0a0a0;
+  background-color: #a0a0a0;
+}
 
 .board {
-  background-color: darkslategray;
+  background-color: grey;
   /* display: flexbox; */
   margin: 0 auto;
   padding: 20px;
@@ -92,7 +120,7 @@ td {
 /* Mobile view */
 @media (max-width: 600px) {
   body {
-    background-color: lightskyblue;
+    background-color: snow;
     text-align: center;
   }
 }

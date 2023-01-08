@@ -4,6 +4,7 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 const btnSet = [btn0, btn1, btn2, btn3];
+const nextLevelBtn = document.getElementById("nextLevelBtn");
 
 const endMsg = document.getElementById("msg");
 const buttons = document.getElementsByClassName("buttons");
@@ -13,7 +14,8 @@ const board = document.getElementsByClassName("board");
 let level = 1;
 let userOrder = [];
 let compOrder = [];
-let winFlag = true;
+let nextLevelFlag = true;
+let userInput = -1;
 // let counter = 0;
 
 //Random number generator
@@ -21,17 +23,25 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-function lightOff(index) {
-  btnSet[compOrder[index]].style.opacity = "20%";
-}
-
 function genNextLight() {
   let randVal = getRandomInt(btnSet.length);
   compOrder.push(randVal);
 }
 
-function lightOn(index) {
+function compLightOff(index) {
+  btnSet[compOrder[index]].style.opacity = "20%";
+}
+
+function compLightOn(index) {
   btnSet[compOrder[index]].style.opacity = "100%";
+}
+
+function userLightOff(index) {
+  btnSet[index].style.opacity = "20%";
+}
+
+function userLightOn(index) {
+  btnSet[index].style.opacity = "100%";
 }
 
 function iDontKnow() {
@@ -45,41 +55,72 @@ function iDontKnow() {
   //   }
 }
 
-function startGame() {
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function startGame() {
+  nextLevelFlag = false;
+  userOrder = [];
   genNextLight();
-  lightOn(level - 1);
-  setTimeout(lightOff(level - 1), 2000);
-  // lightOff();
+  for (let i = 0; i < level; i++) {
+    compLightOn(i);
+    setTimeout(compLightOff, 2000, i);
+    await sleep(2000);
+  }
   userTurnMessage();
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function (evt) {
-      userOrder.push(evt.target.getAttribute("data-id"));
-      setTimeout((evt.target.style.opacity = "20%"), 2000);
-      // setTimeout(lightOff(level-1), 2000);
 
-      if (compOrder == parseInt(userOrder) && level < 100) {
-        nextMsg();
-        //genNextLight();
-        //level++;
-      } else if (level === 100) {
-        winMessage();
-        return;
-      } else {
-        lossMessage();
-        winFlag = false;
-      }
+  for (let i = 0; i < level; i++) {
+    await getUserOrder();
+    userOrder.push(userInput);
+  }
+  // console.log(userOrder);
+  correctnessCheck();
+
+  return nextLevelFlag;
+}
+
+function getUserOrder() {
+  return new Promise((resolve) => {
+    Array.from(buttons).forEach(function (button) {
+      button.addEventListener("click", function (evt) {
+        userInput = parseInt(evt.target.getAttribute("data-id"));
+        userLightOn(parseInt(evt.target.getAttribute("data-id")));
+        setTimeout(() => {
+          evt.target.style.opacity = "20%";
+        }, 2000);
+        resolve();
+      });
     });
-  }
-  level++;
-  // await startGame();
+  });
 }
-// cb, 0;
 
-async function loopGame() {
-  while (winFlag) {
-    await startGame();
+function correctnessCheck() {
+  if (
+    compOrder.length == userOrder.length &&
+    compOrder.every(function (v, i) {
+      return v === userOrder[i];
+    }) &&
+    level < 100
+  ) {
+    nextMsg();
+    level++;
+    nextLevelFlag = true;
+    nextLevelBtn.disabled = false;
+  } else if (compOrder.length == userOrder.length && level < 100) {
+    lossMessage();
+  } else if (level === 100) {
+    winMessage();
+    // return;
+  } else if (compOrder.length < userOrder.length) {
+    lossMessage();
   }
 }
+
+//async function loopGame() {
+//  do {
+//    flag = await startGame();
+//    console.log(level);
+//  } while (flag);
+//}
 
 function lossMessage() {
   endMsg.innerHTML = `Highest level reached: ${level}. Click on START button to play again.`;
@@ -97,8 +138,9 @@ function userTurnMessage() {
   endMsg.innerHTML = `It's your turn. Choose carefully!`;
 }
 
-startEl.addEventListener("click", loopGame);
+startEl.addEventListener("click", startGame);
 
+nextLevelBtn.addEventListener("click", startGame);
 // btn1El.addEventListener("click", function () {
 //   btn1El.style.opacity = "100%";
 // });
