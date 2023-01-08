@@ -6,12 +6,29 @@ There have been several iterations of this game with several versions and varian
 
 Some screenshots of the game:
 
-![homepage](./Screenshots/game%20open%20page.png)
+![homepage](./Screenshots/game%20open%20page.png "homepage")
+![compChoice](./Screenshots/comp%20choice.png "Computer Pattern")
+![userChoice](./Screenshots/user%20choice.png "User Input")
+![levelClear](./Screenshots/cleared%20level.png "Cleared Level")
+![lossMsg](./Screenshots/loss%20msg.png "Lost Message")
 
-Screenshot(s): Images of your actual game.
+Technologies Used: JavaScript, HTML, CSS
 
-☐ Technologies Used: List of the technologies used, e.g., JavaScript, HTML, CSS...
+Getting Started:
+Link to the deployed game
 
-☐ Getting Started: In this section include the link to your deployed game and any instructions you deem important.
+Once you go the to deployed game:
 
-☐ Next Steps: Planned future enhancements (icebox items).
+1. Click on "Start" button
+2. Observe the color(s) flashed by computer
+3. When prompted for your input, click on the colour(s) in the same order as displayed by computer
+4. If your response was correct, you will have cleared the level.
+5. Click on "Next Level" button to play the next level
+6. If your response was not correct, you would have lost the game.
+7. Click on "Restart" button to play again.
+
+Next Steps:
+
+1. Add audio elements to the buttons - starting off with simple monotones.
+2. Later, add random words linked to each button, so that the game can be played by auditory memory as well.
+3. Provide options to select differnt number of clickable buttons - 3,4,5,6 to vary the difficulty levels further.
