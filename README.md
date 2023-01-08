@@ -16,7 +16,7 @@ There have been several iterations of this game with several versions and varian
 
 ## Getting Started:
 
-Link to the deployed game
+Link to the deployed game: https://gauthambr67.github.io/Simon/
 
 Once you go the to deployed game:
 
