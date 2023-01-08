@@ -1,11 +1,14 @@
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Open Sans", sans-serif, Verdana;
+  font-weight: 600;
 }
 body {
   background-color: whitesmoke;
   text-align: center;
-  font-size: larger;
+  font-size: large;
+  font-weight: 400;
+
   justify-content: center;
   align-items: center;
 }
@@ -20,13 +23,27 @@ body {
   border-radius: 50%;
   font-size: large;
   cursor: pointer;
+  font-weight: 900;
+}
+
+#restartBtn {
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  background-color: #04aa6d;
+  color: white;
+  font-weight: bolder;
+  border-radius: 50%;
+  font-size: large;
+  cursor: pointer;
 }
 
 #nextLevelBtn {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  display: block;
+  display: inline-block;
   background-color: #04aa6d;
   color: white;
   border-radius: 50%;
@@ -38,6 +55,9 @@ body {
   background-color: #3e8e41;
 }
 
+#restartBtn:hover {
+  background-color: #3e8e41;
+}
 #nextLevelBtn:hover {
   background-color: #3e8e41;
 }
@@ -67,6 +87,9 @@ body {
   padding: 20px;
   color: white;
   font-size: large;
+  border-radius: 30px;
+  border-color: darkslategray;
+  border-style: groove;
 }
 
 td {
@@ -82,40 +105,36 @@ td {
 
 .buttons {
   font-size: larger;
+  border-style: groove;
+  border-color: black;
 }
 
 #btn0 {
   background-color: red;
   opacity: 20%;
 }
-/* #btn0:active {
-  opacity: 100%;
-} */
 
 #btn1 {
   background-color: blue;
   opacity: 20%;
 }
-/* #btn1:active {
-  opacity: 100%;
-} */
 
 #btn2 {
   background-color: yellow;
   color: black;
   opacity: 20%;
 }
-/* #btn2:active {
-  opacity: 100%;
-} */
 
 #btn3 {
   background-color: green;
   opacity: 20%;
 }
-/* #btn3:active {
-  opacity: 100%;
-} */
+
+#msg {
+  font-size: x-large;
+  font-style: italic;
+  margin: 15px;
+}
 
 /* Mobile view */
 @media (max-width: 600px) {

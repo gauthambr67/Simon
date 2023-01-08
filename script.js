@@ -1,4 +1,5 @@
 const startEl = document.getElementById("startBtn");
+const restartEl = document.getElementById("restartBtn");
 const btn0 = document.getElementById("btn0");
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
@@ -16,7 +17,6 @@ let userOrder = [];
 let compOrder = [];
 let nextLevelFlag = true;
 let userInput = -1;
-// let counter = 0;
 
 //Random number generator
 function getRandomInt(max) {
@@ -29,7 +29,7 @@ function genNextLight() {
 }
 
 function compLightOff(index) {
-  btnSet[compOrder[index]].style.opacity = "20%";
+  btnSet[compOrder[index]].style.opacity = "40%";
 }
 
 function compLightOn(index) {
@@ -37,34 +37,24 @@ function compLightOn(index) {
 }
 
 function userLightOff(index) {
-  btnSet[index].style.opacity = "20%";
+  btnSet[index].style.opacity = "40%";
 }
 
 function userLightOn(index) {
   btnSet[index].style.opacity = "100%";
 }
 
-function iDontKnow() {
-  //   counter++;
-  //   console.log(counter);
-  //   if (counter < level) {
-  //     startGame();
-  //     genNextLight();
-  //   } else {
-  //     counter = 0;
-  //   }
-}
-
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function startGame() {
   nextLevelFlag = false;
+  endMsg.innerHTML = "";
   userOrder = [];
   genNextLight();
   for (let i = 0; i < level; i++) {
     compLightOn(i);
-    setTimeout(compLightOff, 2000, i);
-    await sleep(2000);
+    setTimeout(compLightOff, 1000, i);
+    await sleep(1000);
   }
   userTurnMessage();
 
@@ -85,8 +75,8 @@ function getUserOrder() {
         userInput = parseInt(evt.target.getAttribute("data-id"));
         userLightOn(parseInt(evt.target.getAttribute("data-id")));
         setTimeout(() => {
-          evt.target.style.opacity = "20%";
-        }, 2000);
+          evt.target.style.opacity = "40%";
+        }, 1000);
         resolve();
       });
     });
@@ -138,7 +128,16 @@ function userTurnMessage() {
   endMsg.innerHTML = `It's your turn. Choose carefully!`;
 }
 
+function restartGame() {
+  level = 1;
+  compOrder = [];
+  userOrder = [];
+  nextLevelFlag = true;
+  userInput = -1;
+  startGame();
+}
 startEl.addEventListener("click", startGame);
+restartEl.addEventListener("click", restartGame);
 
 nextLevelBtn.addEventListener("click", startGame);
 // btn1El.addEventListener("click", function () {

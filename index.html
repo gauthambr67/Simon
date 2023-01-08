@@ -7,30 +7,43 @@
     <title>SIMON Game</title>
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+    </style>
   </head>
   <body>
     <h1>Welcome to the Simon Game</h1>
-    <br>Test your memory skills by playing this simple game. <br> <br>
-    Follow the pattern of colours closely. Repeat the same pattern by clicking on the color buttons in the same order. <br>
-<br> Press on the Start button to begin.</h2>
-<br> <br>
-<button id="startBtn">START</button>
-<br><br>
-<!-- gameboard -->
-<table class="board">
-    <tr>
-    <td class="buttons" id="btn0" data-id=0>RED</td>
-    <td class="buttons" id="btn1" data-id=1>BLUE</td> 
-</tr>
-    <tr>    
-    <td class="buttons" id="btn2" data-id=2>YELLOW</td>
-    <td class="buttons" id="btn3" data-id=3>GREEN</td> 
-</tr>
-</table>
-<div id="msg"></div>
-<br><br>
+    <p>
+      Test your memory skills by playing this simple game. <br />
+      <br />
+      Follow the pattern of colours closely. Repeat the same pattern by clicking
+      on the color buttons in the same order. <br />
+      <br />
+      Press on the Start button to begin. <br />After completion of a level,
+      click on NEXT LEVEL button to go to next level.
+    </p>
+    <button id="startBtn">START</button>
+    <br />
+    <!-- gameboard -->
+    <table class="board">
+      <tr>
+        <td class="buttons" id="btn0" data-id="0">RED</td>
+        <td class="buttons" id="btn1" data-id="1">BLUE</td>
+      </tr>
+      <tr>
+        <td class="buttons" id="btn2" data-id="2">YELLOW</td>
+        <td class="buttons" id="btn3" data-id="3">GREEN</td>
+      </tr>
+    </table>
+    <div id="msg"></div>
 
-<button id="nextLevelBtn" name="Next Level" disabled>Next Level</button>
-
+    <button id="nextLevelBtn" name="Next Level" disabled>Next Level</button>
+    <button id="restartBtn">RESTART</button>
   </body>
 </html>
